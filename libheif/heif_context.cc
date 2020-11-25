@@ -2321,3 +2321,10 @@ Error HeifContext::add_generic_metadata(std::shared_ptr<Image> master_image, con
 
   return Error::Ok;
 }
+
+Error HeifContext::add_clap_property(heif_item_id id, uint32_t clap_width, uint32_t clap_height,
+                                     uint32_t image_width, uint32_t image_height)
+{
+  m_heif_file->add_clap_property(id, clap_width, clap_height, image_width, image_height);
+  return Error::Ok;
+}

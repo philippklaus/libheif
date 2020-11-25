@@ -2423,6 +2423,15 @@ void Box_clap::set(uint32_t clap_width, uint32_t clap_height,
   m_vertical_offset = Fraction(-(int32_t) (image_height - clap_height), 2);
 }
 
+void Box_clap::set(Fraction width, Fraction height, Fraction x_off, Fraction y_off)
+{
+  m_clean_aperture_width = width;
+  m_clean_aperture_height = height;
+
+  m_horizontal_offset = x_off;
+  m_vertical_offset = y_off;
+}
+
 
 Error Box_iref::parse(BitstreamRange& range)
 {

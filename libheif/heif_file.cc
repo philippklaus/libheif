@@ -681,6 +681,18 @@ void HeifFile::add_clap_property(heif_item_id id, uint32_t clap_width, uint32_t 
 }
 
 
+void HeifFile::add_clap_property(heif_item_id id, Fraction width, Fraction height,
+                                 Fraction x_offset, Fraction y_offset)
+{
+  auto clap = std::make_shared<Box_clap>();
+  clap->set(width, height, x_offset, y_offset);
+
+  int index = m_ipco_box->append_child_box(clap);
+
+  m_ipma_box->add_property_for_item_ID(id, Box_ipma::PropertyAssociation{true, uint16_t(index + 1)});
+}
+
+
 void HeifFile::add_pixi_property(heif_item_id id, uint8_t c1, uint8_t c2, uint8_t c3)
 {
   auto pixi = std::make_shared<Box_pixi>();

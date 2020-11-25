@@ -756,6 +756,7 @@ namespace heif {
 
     void set(uint32_t clap_width, uint32_t clap_height,
              uint32_t image_width, uint32_t image_height);
+    void set(Fraction width, Fraction height, Fraction x_off, Fraction y_off);
 
   protected:
     Error parse(BitstreamRange& range) override;

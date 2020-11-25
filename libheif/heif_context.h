@@ -319,6 +319,9 @@ namespace heif {
     Error add_generic_metadata(std::shared_ptr<Image> master_image, const void* data, int size,
                                const char* item_type, const char* content_type);
 
+    Error add_clap_property(heif_item_id id, uint32_t clap_width, uint32_t clap_height,
+                            uint32_t image_width, uint32_t image_height);
+
     void write(StreamWriter& writer);
 
   private:
